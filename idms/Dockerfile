@@ -22,8 +22,7 @@ WORKDIR $HOME
 
 RUN git clone -b master https://github.com/datalogistics/wildfire-dln
 RUN git clone -b develop https://github.com/datalogistics/libdlt
-RUN git clone -b develop https://github.com/periscope-ps/UNISrt.git
-
+RUN git clone -b develop https://github.com/datalogistics/IDMS.git
 ADD build.sh .
 RUN bash ./build.sh
 
@@ -31,8 +30,9 @@ RUN mkdir $HOME/.periscope
 
 ADD .dlt .
 ADD .rtcache $HOME/.periscope/.rtcache/
-CMD chmod 777 $HOME/.periscope/.rtcache -r
+RUN sudo chown wdln $HOME/.periscope/.rtcache 
 ADD .cache $HOME/.periscope/.cache/
+RUN sudo chown wdln $HOME/.periscope/.cache
 
 
 ENV DEBUG INFO
