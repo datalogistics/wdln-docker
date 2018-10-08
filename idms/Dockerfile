@@ -22,13 +22,16 @@ WORKDIR $HOME
 
 RUN git clone -b master https://github.com/datalogistics/wildfire-dln
 RUN git clone -b develop https://github.com/datalogistics/libdlt
+RUN git clone -b develop https://github.com/periscope-ps/UNISrt.git
 
 ADD build.sh .
 RUN bash ./build.sh
 
 RUN mkdir $HOME/.periscope
+
 ADD .dlt .
 ADD .rtcache $HOME/.periscope/.rtcache/
+CMD chmod 777 $HOME/.periscope/.rtcache -r
 ADD .cache $HOME/.periscope/.cache/
 
 
