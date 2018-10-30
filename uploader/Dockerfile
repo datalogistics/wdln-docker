@@ -26,8 +26,7 @@ ADD build.sh .
 RUN bash ./build.sh
 
 RUN mkdir $HOME/.periscope
-RUN mkdir $HOME/.depots
-ADD depots $HOME/.depots/
+ADD depots $HOME/.depots
 ADD .rtcache $HOME/.periscope/.rtcache/
 ADD .cache $HOME/.periscope/.cache/
 
