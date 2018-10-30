@@ -20,6 +20,7 @@ USER wdln
 ENV HOME /home/wdln
 WORKDIR $HOME
 
+RUN git clone -b develop https://github.com/periscope-ps/unisrt
 RUN git clone -b master https://github.com/datalogistics/wildfire-dln
 RUN git clone -b develop https://github.com/datalogistics/libdlt
 RUN git clone -b develop https://github.com/datalogistics/IDMS.git
