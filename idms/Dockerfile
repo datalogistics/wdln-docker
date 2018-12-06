@@ -5,7 +5,7 @@ MAINTAINER Ezra Kissel <ezkissel@indiana.edu>
 EXPOSE 9001/tcp
 
 RUN apt-get update
-RUN apt-get -y install sudo cmake gcc libaprutil1-dev libapr1-dev python-setuptools python-pip
+RUN apt-get -y install sudo cmake gcc libaprutil1-dev libapr1-dev python-setuptools python-pip supervisor
 
 RUN export uid=1000 gid=1000 && \
     mkdir -p /home/wdln && \
@@ -35,7 +35,7 @@ RUN sudo chown wdln $HOME/.periscope/.rtcache
 ADD .cache $HOME/.periscope/.cache/
 RUN sudo chown wdln $HOME/.periscope/.cache
 
-
 ENV DEBUG INFO
 ADD run.sh .
+ADD idms.conf /etc/supervisor/conf.d/
 CMD bash ./run.sh
