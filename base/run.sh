@@ -10,6 +10,7 @@ get_version $HOSTNAME
 git -C unis pull
 git -C unisrt pull
 git -C wildfire-dln pull
+git -C lace pull
 
 git -C dlt-web stash
 git -C dlt-web pull

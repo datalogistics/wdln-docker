@@ -8,12 +8,15 @@ sudo ibp_server -d /usr/local/etc/ibp/ibp.cfg
 get_version $HOSTNAME
 
 sudo mkdir -p /depot/web
+sudo mkdir -p /depot/upload
 sudo chown wdln:wdln /depot/web
+sudo chown wdln:wdln /depot/upload
 
 git -C unis pull
 git -C unisrt pull
 git -C libdlt pull
 git -C wildfire-dln pull
+git -C lace pull
 
 # re-apply setup for dev purposes
 cd wildfire-dln/ferry
