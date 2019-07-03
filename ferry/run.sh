@@ -15,8 +15,10 @@ sudo chown wdln:wdln /depot/upload
 git -C unis pull
 git -C unisrt pull
 git -C libdlt pull
-git -C wildfire-dln pull
 git -C lace pull
+git -C wildfire-dln stash
+git -C wildfire-dln pull
+git -C wildfire-dln stash pop
 
 # re-apply setup for dev purposes
 cd wildfire-dln/ferry
